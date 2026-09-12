@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { AudioProvider } from "@/components/audio-provider";
+import { BootExperience } from "@/components/boot-experience";
+import { RouteArrival } from "@/components/route-arrival";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,7 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
-        <AudioProvider>{children}</AudioProvider>
+        <BootExperience><AudioProvider><RouteArrival>{children}</RouteArrival></AudioProvider></BootExperience>
       </body>
     </html>
   );
