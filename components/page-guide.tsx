@@ -1,7 +1,9 @@
 "use client";
 
-import { useCallback, useId, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 import { PixelIcon } from "@/components/pixel-icon";
+import { PixelHeart } from "@/components/pixel-art";
+import { useSessionState } from "@/lib/use-session-state";
 
 const dismissed = new Set<string>();
 const eventName = "mi-casa:guide-change";
@@ -27,19 +29,33 @@ export function PageGuide({ page, screen, compact = false }: { page: "birthday" 
     catch { return dismissed.has(key); }
   }, [key]);
   const seen = useSyncExternalStore(subscribe, snapshot, () => true);
+  const [bootFinished] = useSessionState("mi-casa:boot:v1", false);
   const [manual, setManual] = useState<boolean | null>(null);
-  const open = manual ?? (!seen && !compact);
+  const open = bootFinished && (manual ?? (!seen && !compact));
   const id = useId();
   const trigger = useRef<HTMLButtonElement>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const popup = dialog.current;
+    const timer = setTimeout(() => popup?.showModal(), 300);
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { clearTimeout(timer); popup?.close(); document.body.style.overflow = overflow; };
+  }, [open]);
   const close = () => {
     dismissed.add(key);
     try { localStorage.setItem(key, "done"); } catch { /* Keep the dismissal for this visit. */ }
     window.dispatchEvent(new Event(eventName));
     setManual(false);
+    dialog.current?.close();
     trigger.current?.focus({ preventScroll: true });
   };
-  return <aside className={`page-guide ${open ? "page-guide--open" : ""}`} aria-label="Quick guide">
+  return <aside className="page-guide" aria-label="Quick guide">
     <button ref={trigger} className="guide-toggle" aria-expanded={open} aria-controls={id} onClick={() => open ? close() : setManual(true)}><PixelIcon name="help" />{open ? "A little help, if you need it" : "Quick guide"}</button>
-    <div id={id} hidden={!open} className="guide-content"><p>{tips[screen]}</p><button onClick={close}>Got it <PixelIcon name="check" /></button></div>
+    <dialog ref={dialog} id={id} className="guide-popup" aria-labelledby={`${id}-title`} aria-describedby={`${id}-tip`} onCancel={event => { event.preventDefault(); close(); }} onClick={event => { if (event.target === event.currentTarget) close(); }}>
+      <div className="guide-popup-bar"><span>MI CASA / A LITTLE WELCOME</span><button onClick={close} aria-label="Close guide"><PixelIcon name="close" /></button></div>
+      <div className="guide-popup-body"><PixelHeart /><span className="eyebrow">MAKE YOURSELF AT HOME</span><h2 id={`${id}-title`}>{page === "playground" ? "A little time to play." : page === "memories" ? "Our little archive." : "Welcome home, Angel."}</h2><p id={`${id}-tip`}>{tips[screen]}</p><button className="pixel-button" onClick={close}>Got it <PixelIcon name="check" /></button><small>You can reopen this from Quick guide anytime.</small></div>
+    </dialog>
   </aside>;
 }

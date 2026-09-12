@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600;650;700;750;800;900&family=Press+Start+2P&display=swap');
 
+.guide-popup { width: min(440px, calc(100% - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 2px solid #739db8; background: #edf8ff; color: #254f6b; box-shadow: 6px 6px 0 #193e5966; }
+.guide-popup::backdrop { background: #193d59a6; backdrop-filter: blur(3px); }
+.guide-popup-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; background: #c5e0f0; padding: 6px 12px; font: 9px monospace; }
+.guide-popup-bar button { min-width: 44px; min-height: 44px; border: 1px solid #8aafc6; background: #edf8ff; color: #254f6b; }
+.guide-popup-body { padding: 26px; text-align: center; }
+.guide-popup-body > svg { width: 35px; margin-bottom: 18px; color: #6297b6; }
+.guide-popup-body h2 { font-size: 17px; margin: 16px 0; line-height: 1.8; }
+.guide-popup-body p { font-size: 14px; line-height: 1.8; }
+.guide-popup-body small { display: block; margin-top: 18px; font: 10px/1.7 monospace; }
+
 :root { --sky: #d9eef8; --paper: #edf8fd; --ink: #254f6b; --ink-dim: #57788c; --blue: #3278a4; --line: #aacbde; --pixel: 'Press Start 2P', monospace; --sans: 'DM Sans', Arial, sans-serif; }
 * { box-sizing: border-box; }
 html { background: #bddbec; }
