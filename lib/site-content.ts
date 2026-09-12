@@ -16,7 +16,7 @@ export const siteContent = {
     { file: "memories/memory-6.webp", width: 828, height: 1792, alt: "A phone video call with two people resting on their pillows.", caption: "Different pillows. The same quiet moment." },
     { file: "memories/memory-7.webp", width: 1600, height: 1041, alt: "A desktop video call showing a person relaxing with their phone.", caption: "Even when we do our own thing, I like having you there." },
     { file: "memories/memory-8.webp", width: 472, height: 790, alt: "A sleepy close-up beside a patterned pillow during a call.", caption: "The conversation gets quieter. I stay a little longer." },
-    { file: "memories/memory-9.webp", width: 1600, height: 1041, alt: "Two game avatars sitting together beneath a blue sky.", caption: "Until we can sit together for real, save me the spot beside you." },
+    { file: "memories/memory-9.webp", width: 1600, height: 1041, alt: "Two game avatars sitting together beneath a blue sky.", caption: "hehe" },
     { file: "memories/memory-10.webp", width: 822, height: 1200, alt: "A close-up with a playful hand pose around one eye.", caption: "One more silly face. One more reason this album is yours." },
   ],
   greetClose: [
