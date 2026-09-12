@@ -8,6 +8,7 @@ import { useSessionState } from "@/lib/use-session-state";
 import { PixelIcon } from "@/components/pixel-icon";
 import { PixelHeart, PixelStar } from "@/components/pixel-art";
 import { PixelKeepsake } from "@/components/pixel-keepsake";
+import { PageGuide } from "@/components/page-guide";
 
 type Stage = "lock" | "slots" | "letter" | "end";
 type Save = { stage: Stage; loaded: number[]; finished: boolean };
@@ -56,6 +57,7 @@ export function MemoriesExperience() {
   const allLoaded = loadedSlots.length === siteContent.slots.length;
 
   return <section key={stage} aria-busy={leaving} className={`screen memories-screen chapter-arrival ${leaving ? "scene-leaving" : ""} ${stage === "end" ? "memories-screen--ending" : ""}`}>
+    <PageGuide page="memories" screen={stage} />
     <nav className="chapter-nav" aria-label="Memory chapters">
       {(["slots", "letter", "end"] as const).map((chapter, index) => <button key={chapter} onClick={() => goTo(chapter)} disabled={stage === "lock" || (chapter === "end" && !save.finished)} aria-current={stage === chapter ? "step" : undefined}><span>0{index + 1}</span>{["Memories", "The letter", "Always"][index]}</button>)}
     </nav>

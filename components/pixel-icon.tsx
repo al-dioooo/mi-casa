@@ -1,6 +1,9 @@
-type IconName = "arrow-up-right" | "arrow-right" | "arrow-left" | "turn-right" | "check" | "lock" | "save" | "sound" | "muted" | "close";
+type IconName = "arrow-up-right" | "arrow-right" | "arrow-left" | "turn-right" | "check" | "lock" | "save" | "sound" | "muted" | "close" | "fullscreen" | "reset" | "help";
 
 const paths: Record<IconName, string> = {
+  fullscreen: "M0 0h6v2H2v4H0Zm10 0h6v6h-2V2h-4ZM0 10h2v4h4v2H0Zm14 0h2v6h-6v-2h4Z",
+  reset: "M4 0h8v2h2v2h2v8h-2v2h-2v2H4v-2H2v-2h4v2h6v-2h2V4h-2V2H4v4h4v2H0V0h2v4h2Z",
+  help: "M4 0h8v2h2v6h-2v2h-2v2H6V8h4V6h2V2H4v4H2V2h2ZM6 14h4v2H6Z",
   "arrow-up-right": "M6 2h8v8h-2V6h-2v2H8v2H6v2H4v2H2v-2h2v-2h2V8h2V6h2V4H6Z",
   "arrow-right": "M8 2h2v2h2v2h2v4h-2v2h-2v2H8v-2h2v-2H2V6h8V4H8Z",
   "arrow-left": "M6 2h2v2H6v2h8v4H6v2h2v2H6v-2H4v-2H2V6h2V4h2Z",

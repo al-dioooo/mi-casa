@@ -11,6 +11,7 @@ import { usePixelTransition } from "@/lib/use-pixel-transition";
 import { useSessionState } from "@/lib/use-session-state";
 import { siteContent } from "@/lib/site-content";
 import { PixelKeepsake } from "@/components/pixel-keepsake";
+import { PageGuide } from "@/components/page-guide";
 
 export function GreetingExperience() {
   const { play } = useAudio();
@@ -39,6 +40,7 @@ export function GreetingExperience() {
   if (phase !== "greeting") {
     return (
       <section className={`screen screen--envelope ${opening ? "envelope-delivery" : ""}`} aria-label="Birthday envelope" aria-busy={opening}>
+        <PageGuide page="birthday" screen="sealed" />
         <div className="hero-topline"><span>EST. WITH LOVE / ALWAYS & FOREVER</span><span>YOUR BIRTHDAY EDITION <span className="tiny-cross">✚</span></span></div>
         <div className="birthday-hero">
           <div className="hero-copy">
@@ -60,6 +62,7 @@ export function GreetingExperience() {
   return (
     <section className={`screen screen--greeting greeting-enter ${leaving ? "scene-leaving" : ""}`} aria-busy={leaving}>
       <div className="window-title"><span>birthday_letter.txt</span><PixelHeart /></div><div className="letter-toolbar"><span><PixelIcon name="check" /> Yours to keep</span><button className="quiet-link" onClick={() => transition(() => { setOpening(false); setOpened(false); window.scrollTo({ top: 0 }); })}><PixelIcon name="arrow-left" /> Back to the envelope</button></div><span className="eyebrow">LEVEL UP, BIRTHDAY GIRL</span><h1 tabIndex={-1} ref={headingRef}>{siteContent.greetTitle}</h1>
+      <PageGuide page="birthday" screen="greeting" />
       <PixelKeepsake />
       <div className="lede">{siteContent.greetLede.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
       <PhotoAlbum />

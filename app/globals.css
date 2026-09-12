@@ -497,3 +497,86 @@ main:focus { outline: none; }
   .puzzle-status { min-height: 0; }
   .playground-footer { order: 5; }
 }
+
+/* Quiet, contextual help stays in the page and never takes focus on arrival. */
+.page-guide { margin: 12px 0 20px; font-size: 12px; }
+.guide-toggle { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 12px; border: 1px solid #aecbdb; color: #355e78; background: #e6f3fb; font: 11px monospace; }
+.page-guide--open { padding: 6px 12px 12px; border: 1px dashed #9dbed2; background: #e7f4fb; }
+.page-guide--open .guide-toggle { padding-left: 0; border: 0; background: transparent; }
+.guide-content:not([hidden]) { display: flex; align-items: center; gap: 20px; }
+.guide-content p { flex: 1; margin: 0; line-height: 1.7; }
+.guide-content button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; flex-shrink: 0; padding: 8px 14px; border: 1px solid #8bb1c9; color: #345d77; background: #f5fbff; }
+.game-console { order: 2; border: 1px solid #8eafc6; background: #e7f4fb; box-shadow: 5px 5px 0 #b0d0e2; padding: 0 20px 8px; isolation: isolate; }
+.game-toolbar { position: sticky; top: 0; z-index: 5; margin: 0 -20px 18px; padding: 12px 20px; background: #cbe3f1; border-bottom: 1px solid #8eafc6; }
+.challenge-switch, .game-actions { display: flex; gap: 8px; }
+.challenge-switch { margin-bottom: 8px; }
+.challenge-switch button, .game-actions button, .game-reset-confirm button { min-height: 44px; padding: 8px 14px; border: 1px solid #8cb1c8; background: #f0f9fe; color: #254f6b; display: inline-flex; gap: 8px; align-items: center; justify-content: center; font-size: 12px; }
+.challenge-switch button { flex: 1; }
+.challenge-switch button span { font: 10px monospace; }
+.challenge-switch button[aria-pressed='true'] { background: #387ba3; border-color: #2d668a; color: #fff; }
+.game-actions button { flex: 1; }
+.game-actions button[aria-pressed='true'] { background: #b2d2e6; }
+.game-actions button:disabled { opacity: .5; }
+.game-reset-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 10px; }
+.game-reset-confirm p { flex: 1 1 100%; margin: 0; font-size: 12px; line-height: 1.6; }
+.game-play-area { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+.game-board-area { min-width: 0; width: 100%; }
+.game-board-label { display: flex; align-items: center; justify-content: space-between; padding: 0 0 10px; font: 10px monospace; gap: 12px; }
+.game-board-label > span:first-child { display: inline-flex; align-items: center; gap: 8px; }
+.game-board-label svg { width: 12px; height: 12px; }
+.game-console .puzzle-board { border: 2px solid #83a9c3; }
+.game-console .puzzle-cell.is-placed, .game-console .puzzle-piece { background-image: var(--puzzle-image); }
+.game-feedback { min-height: 44px; margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: #3d657e; }
+.game-tray-area { min-width: 0; }
+.game-tray-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; font: 10px monospace; }
+.tray-swipe-hint { display: none; }
+.game-console .puzzle-tray { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 8px; }
+.game-save-note { display: flex; align-items: center; gap: 8px; margin: 14px 0 0; font: 9px/1.6 monospace; }
+.game-console .puzzle-reward h2 { margin: 0; font-size: 15px; }
+.game-console .puzzle-reward p { margin: 0; font-size: 13px; line-height: 1.7; }
+.game-console--full { position: fixed; inset: 0; z-index: 1000; overflow: auto; overscroll-behavior: contain; border: 0; box-shadow: none; padding: env(safe-area-inset-top) max(20px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); background: #d9eef8; }
+.game-console--full .game-toolbar { top: calc(-1 * env(safe-area-inset-top)); padding-top: max(12px, env(safe-area-inset-top)); }
+.game-console--full .game-play-area { max-width: 940px; margin: auto; }
+.game-console--full .game-board-area { max-width: min(480px, calc(100dvh - 245px)); justify-self: center; }
+.game-console--full > .page-guide { max-width: 940px; margin: 8px auto; }
+@media (max-width: 760px) {
+  .game-console { padding: 0 12px 8px; }
+  .game-toolbar { margin: 0 -12px 12px; padding: 8px; }
+  .game-actions, .challenge-switch { gap: 5px; }
+  .game-actions button, .challenge-switch button { padding: 8px 6px; font-size: 11px; gap: 6px; }
+  .game-actions svg { width: 13px; height: 13px; }
+  .game-play-area { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .game-board-area { max-width: 360px; justify-self: center; }
+  .game-console .puzzle-tray { display: flex; gap: 10px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; padding: 8px 6px 12px; }
+  .game-console .puzzle-tray-slot { flex: 0 0 68px; height: 68px; scroll-snap-align: start; }
+  .game-console .puzzle-piece { touch-action: pan-x pan-y; }
+  .game-tray-label { font-size: 9px; margin-bottom: 0; }
+  .tray-swipe-hint { display: inline-flex; align-items: center; gap: 5px; font-size: 8px; }
+  .tray-swipe-hint svg { width: 10px; height: 10px; }
+  .game-save-note { margin-top: 2px; font-size: 8px; }
+  .game-console--full { padding: env(safe-area-inset-top) max(12px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); }
+  .game-console--full .game-board-area { max-width: min(360px, max(144px, calc(100dvh - 350px))); }
+  .game-console--full .game-feedback { font-size: 11px; min-height: 36px; margin-top: 6px; }
+  .game-console--full .game-board-label { padding-bottom: 6px; }
+  .game-console--full .game-save-note { display: none; }
+  .game-console--full > .page-guide { margin: 4px 0 0; }
+  .guide-content:not([hidden]) { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .guide-content p { font-size: 11px; }
+  .playground-intro { padding-top: 4px; padding-bottom: 18px; }
+  .playground-intro h1 { font-size: 36px; }
+  .playground-intro p { font-size: 13px; }
+  .playground-screen { padding-left: 12px; padding-right: 12px; }
+  body:has(.game-console) .music-control { bottom: 10px; right: 10px; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .game-console--full .game-toolbar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px 12px; margin-bottom: 10px; }
+  .game-console--full .challenge-switch { margin: 0; }
+  .game-console--full .game-actions button, .game-console--full .challenge-switch button { padding: 6px; font-size: 10px; }
+  .game-console--full .game-reset-confirm { grid-column: 1 / -1; }
+  .game-console--full .game-play-area { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+  .game-console--full .game-board-area { max-width: max(144px, calc(100dvh - 230px)); }
+  .game-console--full .puzzle-tray { display: grid; grid-template-columns: repeat(3, 1fr); max-width: min(210px, calc(100dvh - 200px)); gap: 6px; margin: auto; }
+  .game-console--full .puzzle-tray-slot { height: auto; }
+  .game-console--full .game-save-note { display: none; }
+  .game-console--full .tray-swipe-hint { display: none; }
+}

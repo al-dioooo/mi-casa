@@ -1,0 +1,5 @@
+Rainy day us
+Created with the built-in image_gen tool.
+
+Prompt:
+Use case: illustration-story. Create a square original romantic pixel-art illustration for challenge two of a light-blue retro jigsaw game. Scene: two adult sweethearts sharing a small table in a cozy glass-roof garden cafe on a rainy afternoon, cups of tea and a tiny cake between them, a blue umbrella by the door. Large rain-streaked windows look out onto a cobbled lane, hydrangeas and a little bookshop. Hanging plants, shelves of books, a curled cat, warm small lamps. Tender peaceful romantic mood. Crisp visible square pixel clusters, nostalgic detailed 16-bit art, predominantly powder blue, periwinkle, navy with cream lights and blush pink flowers. Different distinct details throughout the square for a 3x3 jigsaw, no large empty regions. Edge-to-edge composition. No words, logos, watermark, puzzle lines or frame.
