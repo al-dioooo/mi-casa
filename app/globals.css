@@ -104,11 +104,45 @@ h1 { font-size: clamp(44px, 5.55vw, 86px); line-height: .99; font-weight: 750; l
 .screen-footer { margin-top: auto; padding-top: 35px; text-align: center; }
 .quiet-link { padding: 8px 0; border: 0; background: none; color: #376883; font: 10px monospace; text-underline-offset: 4px; }
 .quiet-link:hover { color: #163d5b; }
-.photo-list { display: grid; gap: 28px; margin: 30px 0; }
+.photo-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 24px 18px; margin: 30px 0; }
 .photo-memory { margin: 0; padding: 9px; border: 1px solid #b1cddd; background: #f9fdff; box-shadow: 3px 3px 0 #c7dfea; }
-.photo-memory img { display: block; width: 100%; max-height: 600px; object-fit: cover; }
+.photo-memory img { display: block; width: 100%; height: 100%; object-fit: contain; transition: opacity .3s; }
 .photo-memory figcaption { padding: 14px 4px 6px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12px; }
 .photo-memory figcaption > span { font: 10px monospace; color: #6087a0; }
+.photo-memory figcaption p { margin: 0; line-height: 1.6; flex: 1; }
+.photo-memory figcaption svg { width: 12px; flex-shrink: 0; }
+.photo-memory--wide { grid-column: 1 / -1; }
+.photo-frame { aspect-ratio: 3 / 4; background: #dcecf5; position: relative; }
+.photo-memory--wide .photo-frame { aspect-ratio: 1600 / 1041; }
+.photo-memory--loading .photo-frame { background-image: repeating-conic-gradient(#c8dfed 0% 25%, #dcecf5 0% 50%); background-size: 24px 24px; }
+.photo-memory--loading img { opacity: 0; }
+.photo-open { padding: 0; border: 0; width: 100%; display: block; color: var(--ink); background: transparent; text-align: left; }
+.photo-open-hint { display: flex; justify-content: space-between; align-items: center; padding: 10px 6px; background: #e1f0f8; font: 8px monospace; letter-spacing: .5px; }
+.photo-open:hover .photo-open-hint { background: #c5e2f1; }
+.photo-error { position: absolute; inset: 0; display: grid; place-content: center; padding: 20px; font-size: 12px; }
+.album-heading { margin-top: 44px; padding-top: 26px; border-top: 1px dashed var(--line); }
+.album-heading h2 { margin: 18px 0 12px; font-size: 18px; }
+.album-heading p { font-size: 13px; line-height: 1.6; }
+.album-signoff { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 0 0 40px; font: 10px monospace; }
+.photo-viewer { padding: 0; border: 1px solid #79a7c0; background: var(--paper); color: var(--ink); width: min(900px, calc(100% - 32px)); max-height: calc(100dvh - 32px); box-shadow: 6px 6px 0 #173e5766; }
+.photo-viewer::backdrop { background: #16354bdb; backdrop-filter: blur(5px); }
+.photo-viewer__bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 14px; background: #bedced; font: 10px monospace; }
+.photo-viewer button { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1px solid #8bb2c9; background: #edf8fc; color: var(--ink); }
+.photo-viewer__image { height: min(60dvh, 680px); padding: 12px; background: #d4e8f2; animation: fade-in .25s ease both; }
+.photo-viewer__image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.photo-viewer__caption { margin: 0; padding: 16px 20px; font-size: 14px; line-height: 1.6; text-align: center; }
+.photo-viewer__controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px 16px; }
+.photo-viewer__controls button { padding: 8px 12px; font-size: 12px; }
+.photo-viewer__controls > span { font: 8px monospace; }
+@media (max-width: 600px) {
+  .photo-list { grid-template-columns: 1fr; }
+  .photo-frame { aspect-ratio: 3 / 4; max-height: 460px; }
+  .photo-viewer__controls > span { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .photo-memory img { transition: none; }
+  .photo-viewer__image { animation: none; }
+}
 .memory-illustration { height: 245px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; background-color: #d4eaf5; background-image: linear-gradient(#b3d4e655 1px, transparent 1px), linear-gradient(90deg, #b3d4e655 1px, transparent 1px); background-size: 20px 20px; }
 .memory-illustration > svg:nth-child(2) { width: 54px; color: #699bbb; filter: drop-shadow(5px 5px 0 #b1d1e2); }
 .memory-illustration > svg:first-child, .memory-illustration > svg:last-child { position: absolute; width: 17px; color: #8cb3ca; left: 20%; top: 24%; }

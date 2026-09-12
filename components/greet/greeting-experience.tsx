@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/components/audio-provider";
 import { Envelope } from "@/components/greet/envelope";
-import { PhotoMemory } from "@/components/greet/photo-memory";
+import { PhotoAlbum } from "@/components/greet/photo-album";
 import { PixelHeart, PixelStar, RetroComputer } from "@/components/pixel-art";
 import { PixelIcon } from "@/components/pixel-icon";
 import { usePixelTransition } from "@/lib/use-pixel-transition";
@@ -60,9 +60,7 @@ export function GreetingExperience() {
     <section className={`screen screen--greeting greeting-enter ${leaving ? "scene-leaving" : ""}`} aria-busy={leaving}>
       <div className="window-title"><span>birthday_letter.txt</span><PixelHeart /></div><div className="letter-toolbar"><span><PixelIcon name="check" /> Yours to keep</span><button className="quiet-link" onClick={() => transition(() => { setOpening(false); setOpened(false); window.scrollTo({ top: 0 }); })}><PixelIcon name="arrow-left" /> Back to the envelope</button></div><span className="eyebrow">LEVEL UP, BIRTHDAY GIRL</span><h1 tabIndex={-1} ref={headingRef}>{siteContent.greetTitle}</h1>
       <div className="lede">{siteContent.greetLede.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-      <div className="photo-list">
-        {siteContent.photos.map((photo) => <PhotoMemory key={photo.file} {...photo} />)}
-      </div>
+      <PhotoAlbum />
       <div className="lede">{siteContent.greetClose.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
       <footer className="screen-footer"><Link href="/memories" className="pixel-button">Explore our memories <PixelIcon name="arrow-up-right" /></Link></footer>
     </section>

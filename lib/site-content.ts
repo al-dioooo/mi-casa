@@ -5,12 +5,19 @@ export const siteContent = {
   greetTitle: "Happy birthday, Mi Casa.",
   greetLede: [
     "It's your birthday and I'm not there, which is the one thing about today I'd fix if I could.",
-    "So this is the next best thing. Scroll.",
+    "So I gathered a few pieces of our little world. The calls, the silly faces, the places we can meet even from far away. Stay a while.",
   ],
   photos: [
-    { file: "photo-1.jpg", caption: "Write your caption here." },
-    { file: "photo-2.jpg", caption: "Write your caption here." },
-    { file: "photo-3.jpg", caption: "Write your caption here." },
+    { file: "memories/memory-1.webp", width: 720, height: 1280, alt: "A playful pout while lying on a pillow.", caption: "Even your little pout deserves its own save file." },
+    { file: "memories/memory-2.webp", width: 720, height: 1280, alt: "A portrait with two braids and a playful expression.", caption: "Two braids. One very unfair amount of cute." },
+    { file: "memories/memory-3.webp", width: 720, height: 1280, alt: "A relaxed portrait in a pale blue shirt with braided hair.", caption: "No grand occasion. Just you, and that is enough." },
+    { file: "memories/memory-4.webp", width: 949, height: 1800, alt: "A close-up portrait tucked beside a soft gray pillow.", caption: "A little corner of the screen, a whole lot of my attention." },
+    { file: "memories/memory-5.webp", width: 1080, height: 1427, alt: "A close-up selfie with a warm vintage camcorder filter.", caption: "You already look like a memory I will keep for years." },
+    { file: "memories/memory-6.webp", width: 828, height: 1792, alt: "A phone video call with two people resting on their pillows.", caption: "Different pillows. The same quiet moment." },
+    { file: "memories/memory-7.webp", width: 1600, height: 1041, alt: "A desktop video call showing a person relaxing with their phone.", caption: "Even when we do our own thing, I like having you there." },
+    { file: "memories/memory-8.webp", width: 472, height: 790, alt: "A sleepy close-up beside a patterned pillow during a call.", caption: "The conversation gets quieter. I stay a little longer." },
+    { file: "memories/memory-9.webp", width: 1600, height: 1041, alt: "Two game avatars sitting together beneath a blue sky.", caption: "Until we can sit together for real, save me the spot beside you." },
+    { file: "memories/memory-10.webp", width: 822, height: 1200, alt: "A close-up with a playful hand pose around one eye.", caption: "One more silly face. One more reason this album is yours." },
   ],
   greetClose: [
     "Have the best day. Eat the McFlurry. Drink the ice lemon tea.",
