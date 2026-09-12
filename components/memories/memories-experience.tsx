@@ -7,6 +7,7 @@ import { usePixelTransition } from "@/lib/use-pixel-transition";
 import { useSessionState } from "@/lib/use-session-state";
 import { PixelIcon } from "@/components/pixel-icon";
 import { PixelHeart, PixelStar } from "@/components/pixel-art";
+import { PixelKeepsake } from "@/components/pixel-keepsake";
 
 type Stage = "lock" | "slots" | "letter" | "end";
 type Save = { stage: Stage; loaded: number[]; finished: boolean };
@@ -71,6 +72,7 @@ export function MemoriesExperience() {
       <footer className="screen-footer"><Link href="/" className="quiet-link"><PixelIcon name="arrow-left" /> Back to your birthday</Link></footer>
     </>}
     {stage === "slots" && <>
+      <PixelKeepsake variant="garden" />
       <span className="eyebrow">SMALL MOMENTS. MY WHOLE WORLD.</span>
       <h2 ref={headingRef} tabIndex={-1}>Our save files.</h2>
       <p className="lede slots-intro">Five little things I never want to forget. Open one.</p>
@@ -92,7 +94,9 @@ export function MemoriesExperience() {
     </>}
     {stage === "letter" && <>
       <div className="letter-toolbar"><button className="quiet-link" onClick={() => goTo("slots")}><PixelIcon name="arrow-left" /> Back to our memories</button><span>JUST US / A FEW QUIET MINUTES</span></div>
+      <PixelKeepsake />
       <article className="letter-paper"><h2 className="letter-salutation" ref={headingRef} tabIndex={-1}>{siteContent.letterSalutation}</h2>{siteContent.letter.map(paragraph => <p key={paragraph}>{paragraph}</p>)}<p className="letter-signature">{siteContent.signature}</p></article>
+      <PixelKeepsake variant="garden" />
       <footer className="screen-footer"><button className="pixel-button" onClick={() => goTo("end")}>One more thing <PixelIcon name="arrow-right" /></button></footer>
     </>}
     {stage === "end" && <>

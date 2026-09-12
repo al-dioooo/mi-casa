@@ -1,0 +1,5 @@
+Moonlit us
+Created with the built-in image_gen tool for the Mi Casa playground.
+
+Prompt:
+Use case: illustration-story. Asset type: square illustration for a tiny romantic pixel-art jigsaw puzzle in a light-blue retro birthday website. Create an original beautiful cozy pixel-art scene: two little adult sweethearts sitting close together on a wooden dock beside a calm lake, watching a crescent moon, a tiny heart floating between them. A small warmly lit cottage and flowers on the left bank, a willow tree on the right, stars and fluffy clouds above, reflections and lily pads below. Rich distinct recognizable details across all nine regions of a 3 by 3 puzzle, no large empty areas. Strict crisp pixel-art with visible square pixels, limited harmonious palette of powder blue, periwinkle, deep navy, cream and small blush pink accents, nostalgic 16-bit game art. Romantic, peaceful, tender. Edge-to-edge square composition, no borders, no puzzle lines, no text, no watermark. Save the generated asset for use in the project.
