@@ -1,0 +1,42 @@
+export const siteContent = {
+  music: "/WoTW.mp3",
+  musicVolume: 0.55,
+  envelopeTo: "for Baby Angel",
+  greetTitle: "Happy birthday, Mi Casa.",
+  greetLede: [
+    "It's your birthday and I'm not there, which is the one thing about today I'd fix if I could.",
+    "So this is the next best thing. Scroll.",
+  ],
+  photos: [
+    { file: "photo-1.jpg", caption: "Write your caption here." },
+    { file: "photo-2.jpg", caption: "Write your caption here." },
+    { file: "photo-3.jpg", caption: "Write your caption here." },
+  ],
+  greetClose: [
+    "Have the best day. Eat the McFlurry. Drink the ice lemon tea.",
+    "I hope it's a good one, Angel.",
+  ],
+  lockHint: "This one's locked. The password is the night it started.",
+  passwords: ["1111111", "11110111", "1111", "111111", "1111111111"],
+  wrongMsg: "Not that one. Think of the date.",
+  slots: [
+    "You fell asleep on call so many times that I stopped hanging up. I'd just leave it running until morning.",
+    "Antarctica Expedition. You clearing the parkour like it's nothing while I'm still stuck on the second jump.",
+    "“Can you help with my assignment?” Every time, usually near midnight. I said yes every time. I'd say yes again.",
+    "McFlurry and ice lemon tea. One day I'm buying you both in person, and that's the whole plan.",
+    "Serious on a call with your lecturer, then jedag jedug on TikTok ten minutes later, then a whole Chinese drama in a weekend. All of that is you. Nobody else gets to be all of that.",
+  ],
+  letterSalutation: "Mi Casa,",
+  letter: [
+    "Happy birthday.",
+    "I made this because I wanted you to have something today that was actually yours. Not a message in a chat that scrolls away — something that stays put.",
+    "I keep thinking about the calls. You'd fall asleep somewhere in the middle and I'd just leave it running, because having the sound of you in the room was the closest we ever got to being in the same place. Your face when you're asleep is my favorite thing I've never seen in person.",
+    "I've told you before that you have snake eyes. I stand by it. And somehow, depending on what you're about to say, they're also the cutest eyes I've ever seen. You can talk your way through any room, and then ask me to fix your assignment at midnight. You have a different voice for every mood and I know which one is coming before you use it. I never got bored of any of it. I never got bored of looking at you.",
+    "I'm not going to use your birthday to ask you for anything. You don't owe me a reply to this, or to anything.",
+    "But I'd rather say it plainly than make you guess: I love you. That hasn't changed and I'm not expecting it to. I'm still the biggest fan of yours in the entire universe. Whatever this is now — I'm glad it's you on the other end of the line.",
+    "Happy birthday, Angel.",
+  ],
+  signature: "— your player one",
+  names: ["Mi Casa.", "Mi Amor.", "Mi Favorito.", "The Angel.", "Baby Angel.", "The one and only."],
+  saveLine: "I'd give you my save file.",
+} as const;
